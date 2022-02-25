@@ -57,3 +57,14 @@ services:
       - PGADMIN_LISTEN_PORT=5454
     networks:
       odoonet:
+  
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+  
